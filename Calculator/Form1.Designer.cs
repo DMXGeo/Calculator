@@ -32,7 +32,7 @@
             this.number2 = new System.Windows.Forms.Button();
             this.number3 = new System.Windows.Forms.Button();
             this.number6 = new System.Windows.Forms.Button();
-            this.numbe5 = new System.Windows.Forms.Button();
+            this.number5 = new System.Windows.Forms.Button();
             this.number4 = new System.Windows.Forms.Button();
             this.number9 = new System.Windows.Forms.Button();
             this.number8 = new System.Windows.Forms.Button();
@@ -96,16 +96,18 @@
             this.number6.TabIndex = 5;
             this.number6.Text = "6";
             this.number6.UseVisualStyleBackColor = true;
+            this.number6.Click += new System.EventHandler(this.number6_Click);
             // 
-            // numbe5
+            // number5
             // 
-            this.numbe5.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numbe5.Location = new System.Drawing.Point(79, 160);
-            this.numbe5.Name = "numbe5";
-            this.numbe5.Size = new System.Drawing.Size(47, 43);
-            this.numbe5.TabIndex = 4;
-            this.numbe5.Text = "5";
-            this.numbe5.UseVisualStyleBackColor = true;
+            this.number5.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.number5.Location = new System.Drawing.Point(79, 160);
+            this.number5.Name = "number5";
+            this.number5.Size = new System.Drawing.Size(47, 43);
+            this.number5.TabIndex = 4;
+            this.number5.Text = "5";
+            this.number5.UseVisualStyleBackColor = true;
+            this.number5.Click += new System.EventHandler(this.number5_Click);
             // 
             // number4
             // 
@@ -116,6 +118,7 @@
             this.number4.TabIndex = 3;
             this.number4.Text = "4";
             this.number4.UseVisualStyleBackColor = true;
+            this.number4.Click += new System.EventHandler(this.number4_Click);
             // 
             // number9
             // 
@@ -126,6 +129,7 @@
             this.number9.TabIndex = 8;
             this.number9.Text = "9";
             this.number9.UseVisualStyleBackColor = true;
+            this.number9.Click += new System.EventHandler(this.number9_Click);
             // 
             // number8
             // 
@@ -136,6 +140,7 @@
             this.number8.TabIndex = 7;
             this.number8.Text = "8";
             this.number8.UseVisualStyleBackColor = true;
+            this.number8.Click += new System.EventHandler(this.number8_Click);
             // 
             // number7
             // 
@@ -146,6 +151,7 @@
             this.number7.TabIndex = 6;
             this.number7.Text = "7";
             this.number7.UseVisualStyleBackColor = true;
+            this.number7.Click += new System.EventHandler(this.number7_Click);
             // 
             // plusButton
             // 
@@ -188,6 +194,7 @@
             this.minusButton.TabIndex = 12;
             this.minusButton.Text = "-";
             this.minusButton.UseVisualStyleBackColor = true;
+            this.minusButton.Click += new System.EventHandler(this.minusButton_Click);
             // 
             // backspaceButton
             // 
@@ -208,6 +215,7 @@
             this.decimalButton.TabIndex = 14;
             this.decimalButton.Text = ".";
             this.decimalButton.UseVisualStyleBackColor = true;
+            this.decimalButton.Click += new System.EventHandler(this.decimalButton_Click);
             // 
             // number0
             // 
@@ -218,6 +226,7 @@
             this.number0.TabIndex = 13;
             this.number0.Text = "0";
             this.number0.UseVisualStyleBackColor = true;
+            this.number0.Click += new System.EventHandler(this.number0_Click);
             // 
             // equalsButton
             // 
@@ -284,7 +293,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -308,7 +317,7 @@
             this.Controls.Add(this.number8);
             this.Controls.Add(this.number7);
             this.Controls.Add(this.number6);
-            this.Controls.Add(this.numbe5);
+            this.Controls.Add(this.number5);
             this.Controls.Add(this.number4);
             this.Controls.Add(this.number3);
             this.Controls.Add(this.number2);
@@ -332,7 +341,7 @@
         private System.Windows.Forms.Button number2;
         private System.Windows.Forms.Button number3;
         private System.Windows.Forms.Button number6;
-        private System.Windows.Forms.Button numbe5;
+        private System.Windows.Forms.Button number5;
         private System.Windows.Forms.Button number4;
         private System.Windows.Forms.Button number9;
         private System.Windows.Forms.Button number8;
