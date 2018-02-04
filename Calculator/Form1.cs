@@ -31,6 +31,7 @@ namespace Calculator
             
         }
 
+        //-----The next 10 buttons simply display the number/decimal pressed and adds them to the currentNumber variable-----
         private void number0_Click(object sender, EventArgs e)
         {
             equalsClicked();
@@ -115,25 +116,69 @@ namespace Calculator
             currentNumber += "9";
             display.Text = currentNumber;
         }
+        //-----End of number chain-----
 
+        //-----The next 4 event methods handle when operands are pressed and activate the Operation state method-----
+        
+        //Plus operand
         private void plusButton_Click(object sender, EventArgs e)
         {
-            OperatorSelected();
-            additionState = true;
+            try
+            {
+                OperatorSelected();
+                additionState = true;
+            }
+            catch(FormatException ex)
+            {
+            }
         }
-
+        
+        //Minus operand
         private void minusButton_Click(object sender, EventArgs e)
         {
-            OperatorSelected();
-            subtractState = true;
+            try
+            {
+                OperatorSelected();
+                subtractState = true;
+            }
+            catch(FormatException ex)
+            {
+
+            }
         }
 
+        //Multiply operand
         private void multiplyButton_Click(object sender, EventArgs e)
         {
-            OperatorSelected();
-            multiplyState = true;
+            try
+            {
+                OperatorSelected();
+                multiplyState = true;
+            }
+            catch(FormatException ex)
+            {
+
+            }
+            
         }
 
+        //Divide operand
+        private void divideButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OperatorSelected();
+                divideState = true;
+            }
+            catch
+            {
+
+            }
+        }
+
+        //The equals button checks for the last operand button pressed
+        //the equalsActive boolean checks if the user is pressing it again
+        //for the same calculation and acts accordingly
         private void equalsButton_Click(object sender, EventArgs e)
         {
             if(multiplyState)
@@ -142,6 +187,7 @@ namespace Calculator
                 {
                     result = numberTwo * double.Parse(display.Text);
                     display.Text = result.ToString();
+                    currentNumber = display.Text;
                 }
                 else
                 {
@@ -178,6 +224,20 @@ namespace Calculator
                     display.Text = result.ToString();
                 }
             }
+            else if (divideState)
+            {
+                if(equalsActive)
+                {
+                    result = double.Parse(display.Text) / numberTwo;
+                    display.Text = result.ToString();
+                }
+                else
+                {
+                    numberTwo = double.Parse(display.Text);
+                    result = numberOne / double.Parse(currentNumber);
+                    display.Text = result.ToString();
+                }
+            }
             
             equalsActive = true;
 
@@ -190,6 +250,17 @@ namespace Calculator
             calculateReset();
         }
 
+        private void backspaceButton_Click(object sender, EventArgs e)
+        {
+            display.Text = display.Text.Remove(display.Text.Length - 1, 1);
+            currentNumber = display.Text;
+
+            if(display.Text.Length == 0)
+            {
+                display.Text = "0";
+                currentNumber = "";
+            }
+        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -226,6 +297,7 @@ namespace Calculator
             multiplyState = false;
             additionState = false;
             subtractState = false;
+            divideState = false;
         }
 
         private void Calculation()
@@ -246,6 +318,12 @@ namespace Calculator
             {
                 numberTwo = double.Parse(display.Text);
                 result = numberOne - double.Parse(currentNumber);
+                display.Text = result.ToString();
+            }
+            else if (divideState)
+            {
+                numberTwo = double.Parse(display.Text);
+                result = numberOne / double.Parse(currentNumber);
                 display.Text = result.ToString();
             }
         }

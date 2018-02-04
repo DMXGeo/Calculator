@@ -184,6 +184,7 @@
             this.divideButton.TabIndex = 11;
             this.divideButton.Text = "/";
             this.divideButton.UseVisualStyleBackColor = true;
+            this.divideButton.Click += new System.EventHandler(this.divideButton_Click);
             // 
             // minusButton
             // 
@@ -205,6 +206,7 @@
             this.backspaceButton.TabIndex = 15;
             this.backspaceButton.Text = "<-";
             this.backspaceButton.UseVisualStyleBackColor = true;
+            this.backspaceButton.Click += new System.EventHandler(this.backspaceButton_Click);
             // 
             // decimalButton
             // 
@@ -257,7 +259,6 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(47, 43);
             this.button10.TabIndex = 17;
-            this.button10.Text = "sqrt";
             this.button10.UseVisualStyleBackColor = true;
             // 
             // display
