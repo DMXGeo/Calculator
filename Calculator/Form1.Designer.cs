@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-    partial class Form1
+    partial class CalculatorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -46,7 +46,7 @@
             this.number0 = new System.Windows.Forms.Button();
             this.equalsButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.squareRootButton = new System.Windows.Forms.Button();
             this.display = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -252,14 +252,16 @@
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
-            // button10
+            // squareRootButton
             // 
-            this.button10.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(185, 111);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(47, 43);
-            this.button10.TabIndex = 17;
-            this.button10.UseVisualStyleBackColor = true;
+            this.squareRootButton.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.squareRootButton.Location = new System.Drawing.Point(185, 111);
+            this.squareRootButton.Name = "squareRootButton";
+            this.squareRootButton.Size = new System.Drawing.Size(47, 43);
+            this.squareRootButton.TabIndex = 17;
+            this.squareRootButton.Text = "sqr/rt";
+            this.squareRootButton.UseVisualStyleBackColor = true;
+            this.squareRootButton.Click += new System.EventHandler(this.squareRootButton_Click);
             // 
             // display
             // 
@@ -298,14 +300,14 @@
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // Form1
+            // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 317);
             this.Controls.Add(this.display);
             this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.squareRootButton);
             this.Controls.Add(this.equalsButton);
             this.Controls.Add(this.backspaceButton);
             this.Controls.Add(this.decimalButton);
@@ -326,9 +328,8 @@
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "CalculatorForm";
+            this.Text = "Calculator";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -356,7 +357,7 @@
         private System.Windows.Forms.Button number0;
         private System.Windows.Forms.Button equalsButton;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button squareRootButton;
         private System.Windows.Forms.Label display;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;

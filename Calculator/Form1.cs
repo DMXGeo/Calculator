@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calculator
 {
-    public partial class Form1 : Form
+    public partial class CalculatorForm : Form
     {
         String currentNumber; //The currently displayed number
         double numberOne, numberTwo; //stored numbers
@@ -21,14 +14,9 @@ namespace Calculator
         bool calculationState; //determines if there is currently a calculation being stored
                                //for example, was the plus button pressed before any other operation
 
-        public Form1()
+        public CalculatorForm()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
         }
 
         //-----The next 10 buttons simply display the number/decimal pressed and adds them to the currentNumber variable-----
@@ -125,6 +113,7 @@ namespace Calculator
         {
             try
             {
+                calculateReset();
                 OperatorSelected();
                 additionState = true;
             }
@@ -138,6 +127,7 @@ namespace Calculator
         {
             try
             {
+                calculateReset();
                 OperatorSelected();
                 subtractState = true;
             }
@@ -152,6 +142,7 @@ namespace Calculator
         {
             try
             {
+                calculateReset();
                 OperatorSelected();
                 multiplyState = true;
             }
@@ -167,6 +158,7 @@ namespace Calculator
         {
             try
             {
+                calculateReset();
                 OperatorSelected();
                 divideState = true;
             }
@@ -262,10 +254,19 @@ namespace Calculator
             }
         }
 
+        private void squareRootButton_Click(object sender, EventArgs e)
+        {
+            numberOne = Math.Sqrt(double.Parse(currentNumber));
+            display.Text = numberOne.ToString();
+            currentNumber = display.Text;
+
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
 
         private void equalsClicked()
         {
@@ -273,6 +274,7 @@ namespace Calculator
             {
                 currentNumber = "";
                 equalsActive = false;
+
             }
         }
 
@@ -307,6 +309,7 @@ namespace Calculator
                 numberTwo = double.Parse(display.Text);
                 result = numberOne * double.Parse(currentNumber);
                 display.Text = result.ToString(); 
+
             }
             else if (additionState)
             {
@@ -327,8 +330,6 @@ namespace Calculator
                 display.Text = result.ToString();
             }
         }
-
-        
 
     }
 }
