@@ -167,8 +167,9 @@ namespace Calculator
 
             }
         }
+        //----- End of operan event handlers -----
 
-        //The equals button checks for the last operand button pressed
+        //The equals button checks for the last operand button pressed,
         //the equalsActive boolean checks if the user is pressing it again
         //for the same calculation and acts accordingly
         private void equalsButton_Click(object sender, EventArgs e)
@@ -235,6 +236,39 @@ namespace Calculator
 
         }
 
+        //Check that the number in the display isn't 0 before using the Math
+        //class to get the square root of it
+        private void squareRootButton_Click(object sender, EventArgs e)
+        {
+            if (display.Text == "0")
+            {
+
+            }
+            else
+            {
+                numberOne = Math.Sqrt(double.Parse(currentNumber));
+                display.Text = numberOne.ToString();
+                currentNumber = display.Text;
+            }
+            
+
+        }
+
+        //Allows the user to delete the last integer on the display
+        private void backspaceButton_Click(object sender, EventArgs e)
+        {
+            display.Text = display.Text.Remove(display.Text.Length - 1, 1);
+            currentNumber = display.Text;
+
+            //If there is only one number, reset it to 0
+            if (display.Text.Length == 0)
+            {
+                display.Text = "0";
+                currentNumber = "";
+            }
+        }
+
+        //Clears the calculator display and resets its state
         private void clearButton_Click(object sender, EventArgs e)
         {
             currentNumber = "";
@@ -242,73 +276,14 @@ namespace Calculator
             calculateReset();
         }
 
-        private void backspaceButton_Click(object sender, EventArgs e)
-        {
-            display.Text = display.Text.Remove(display.Text.Length - 1, 1);
-            currentNumber = display.Text;
-
-            if(display.Text.Length == 0)
-            {
-                display.Text = "0";
-                currentNumber = "";
-            }
-        }
-
-        private void squareRootButton_Click(object sender, EventArgs e)
-        {
-            numberOne = Math.Sqrt(double.Parse(currentNumber));
-            display.Text = numberOne.ToString();
-            currentNumber = display.Text;
-
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-        private void equalsClicked()
-        {
-            if(equalsActive)
-            {
-                currentNumber = "";
-                equalsActive = false;
-
-            }
-        }
-
-        private void OperatorSelected()
-        {
-            equalsActive = false;
-
-            if (calculationState)
-            {
-                Calculation();
-            }
-
-            calculateReset();
-
-            numberOne = double.Parse(display.Text);
-            currentNumber = "";
-            calculationState = true;
-        }
-
-        private void calculateReset()
-        {
-            multiplyState = false;
-            additionState = false;
-            subtractState = false;
-            divideState = false;
-        }
-
+        //Checks the operand state of the calculator and performs the appropriate calculation
         private void Calculation()
         {
             if (multiplyState)
             {
                 numberTwo = double.Parse(display.Text);
                 result = numberOne * double.Parse(currentNumber);
-                display.Text = result.ToString(); 
+                display.Text = result.ToString();
 
             }
             else if (additionState)
@@ -331,5 +306,50 @@ namespace Calculator
             }
         }
 
+        //Method checks for an the current state of the calculator, then resets it
+        private void OperatorSelected()
+        {
+            equalsActive = false;
+
+            if (calculationState)
+            {
+                Calculation();
+            }
+
+            calculateReset();
+
+            numberOne = double.Parse(display.Text);
+            currentNumber = "";
+            calculationState = true;
+        }
+
+        //Method checks if the last button pressed was equals, if so
+        //set it to false in case of new operation desired and reset
+        //the current number
+        private void equalsClicked()
+        {
+            if (equalsActive)
+            {
+                currentNumber = "";
+                equalsActive = false;
+            }
+        }
+
+        //Method resets the state of the calculator
+        private void calculateReset()
+        {
+            multiplyState = false;
+            additionState = false;
+            subtractState = false;
+            divideState = false;
+        }
+
+        
+
+        //Closes application
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
